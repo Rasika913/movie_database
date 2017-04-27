@@ -17,7 +17,7 @@
       <% @directors.each do |director| %>
       <tr>
         <td><%= director.bio %></td>
-        <td><%= director.photo %></td>
+        <td><img src='<%= director.photo %>' class='img-responsive'></td>
         <td>
           <a href="/directors/<%= director.id %>" class="btn btn-primary">Show</a>
           <a href="/directors/<%= director.id %>/edit" class="btn btn-warning">Edit</a>

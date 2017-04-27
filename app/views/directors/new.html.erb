@@ -14,7 +14,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <form action="/create_director" method="post">
+    <form action="/create_director" method="post" enctype="multipart/form-data">
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
@@ -33,7 +33,7 @@
           Photo
         </label>
 
-        <input type="text" id="photo" name="photo" placeholder="Photo" class="form-control" value="<%= @director.photo %>">
+        <input type="file" id="photo" name="photo" class="form-control">
       </div>
 
       <button class="btn btn-success">
