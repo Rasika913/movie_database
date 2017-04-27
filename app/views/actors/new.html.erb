@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @actor.errors.any? %>
+  <% @actor.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Actor</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_actor" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for bio -->
+      <div class="form-group">
+        <label for="bio" class="control-label">
+          Bio
+        </label>
+
+        <textarea id="bio" name="bio" placeholder="Bio" class="form-control" rows="3"><%= @actor.bio %></textarea>
+      </div>
+
+      <!-- Label and input for trivia -->
+      <div class="form-group">
+        <label for="trivia" class="control-label">
+          Trivia
+        </label>
+
+        <textarea id="trivia" name="trivia" placeholder="Trivia" class="form-control" rows="3"><%= @actor.trivia %></textarea>
+      </div>
+
+      <button class="btn btn-success">
+        Create Actor
+      </button>
+      or
+      <a href="/actors">Cancel</a>
+    </form>
+  </div>
+</div>
