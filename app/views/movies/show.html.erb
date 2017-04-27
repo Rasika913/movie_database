@@ -12,7 +12,13 @@
       <dd><img src="<%= @movie.image %>" class="img-responsive"></dd>
 
       <dt>Director</dt>
-      <dd><%= @movie.director_id %></dd>
+      <dd>
+        <% if @movie.director.present? %>
+          <a href="/directors/<%= @movie.director_id %>">
+            <%= @movie.director.bio %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

@@ -17,7 +17,13 @@
       <% @castings.each do |casting| %>
       <tr>
         <td><%= casting.character %></td>
-        <td><%= casting.movie.title %></td>
+        <td>
+          <% if casting.movie.present? %>
+            <a href="/movies/<%= casting.movie.id %>">
+              <%= casting.movie.title %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/castings/<%= casting.id %>" class="btn btn-primary">Show</a>
           <a href="/castings/<%= casting.id %>/edit" class="btn btn-warning">Edit</a>
